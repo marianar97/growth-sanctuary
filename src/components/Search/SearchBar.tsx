@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function SearchBar({ value, handleSearch }) {
+export default function SearchBar({ onSearch }) {
   return (
     <div className="flex px-4 py-3 my-4 rounded-md border-2 border-gray-100 hover:border-gray-400 overflow-hidden w-full">
       <svg
@@ -13,8 +13,7 @@ export default function SearchBar({ value, handleSearch }) {
       </svg>
       <input
         type="text"
-        value={value}
-        onChange={(e) => handleSearch(e.target.value)}
+        onChange={(e) => onSearch(e.target.value)}
         placeholder="Search Something..."
         className="w-full outline-none bg-transparent text-gray-600 text-sm"
       />

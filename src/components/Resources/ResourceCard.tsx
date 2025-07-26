@@ -2,7 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Eye, Star } from "lucide-react";
 
-export default function GenericResourceCard({
+export default function ResourceCard({
   id,
   title,
   description,
@@ -18,23 +18,23 @@ export default function GenericResourceCard({
   tags: string[];
 }) {
   return (
-    <div className="min-w-[280px] w-[280px] flex-shrink-0">
+    <div className="min-w-[280px] w-[280px] flex-shrink-0 ">
       {/* Main Card */}
-      <Card className="bg-white border-gray-200 hover:shadow-lg transition-all duration-300 cursor-pointer overflow-hidden">
-        <div className="p-5 text-center space-y-4">
+      <Card className="bg-white border-none hover:shadow-lg transition-all duration-300 cursor-pointer overflow-hidden rounded-b-none">
+        <div className="relative">
           {/* Header Image */}
           <img
             src={image}
             alt={`${title} - ${description}`}
-            className="w-full h-auto"
+            className="w-full h-[180px] object-cover"
           />
 
-          {/* Badges */}
-          <div className="flex justify-center space-x-3">
+          {/* Badges - Positioned on top of the image */}
+          <div className="absolute top-2 left-0 right-0 flex justify-center space-x-2 px-2">
             {tags.map((tag) => (
               <Badge
                 key={tag}
-                className="bg-purple-600 text-white hover:bg-purple-700 px-3 py-0.5 text-xs font-medium"
+                className="bg-purple-600/90 text-white hover:bg-purple-700 px-3 py-0.5 text-xs font-medium backdrop-blur-sm"
               >
                 {tag}
               </Badge>

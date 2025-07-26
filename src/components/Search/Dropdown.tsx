@@ -27,7 +27,7 @@ export default function Dropdown({ onTypeChange, initialSelected = null }) {
 
   // Find the text of the currently selected item
   const selectedItemText =
-    menuItems.find((item) => item.id === selected)?.text || "Options";
+    menuItems.find((item) => item.id === selected)?.text || "Type";
 
   useEffect(() => {
     const handleClickOutside = (event) => {

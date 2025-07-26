@@ -6,16 +6,17 @@ import { useState } from "react";
 const defaultResources = [
   {
     id: "1",
-    title: "Resource 1",
-    description: "Description 1",
-    image: "https://www.firecrawl.dev/og.png?123",
-    url: "https://www.firecrawl.dev",
-    tags: ["AI", "API", "LLM"],
+    title: "Churchill's Speech: We shall fight on the beaches",
+    description:
+      "Churchill's Speech: We shall fight on the beaches, we shall never surrender",
+    image: "https://www.hollywoodreporter.com/wp-content/uploads/2018/01/4106_d049_00189_r_crop_-_h_2017.jpg",
+    url: "https://www.youtube.com/watch?v=CXIrnU7Y_RU",
+    tags: ["History", "Growth", "Determination"],
     type: "video",
   },
   {
     id: "2",
-    title: "Resource 3",
+    title: "How to Make friends and influence people Article",
     description: "Description 2",
     image: "https://www.firecrawl.dev/og.png?123",
     url: "https://www.firecrawl.dev",
@@ -24,7 +25,7 @@ const defaultResources = [
   },
   {
     id: "3",
-    title: "Resource 4",
+    title: "The Art of War",
     description: "Description 2",
     image: "https://www.firecrawl.dev/og.png?123",
     url: "https://www.firecrawl.dev",
@@ -51,7 +52,7 @@ export default function Resources({
   const handleSearch = (search: string) => {
     const tmpResources = SampleResources.filter((resource: any) => {
       if (!search || search === "") return true;
-      return resource.title.includes(search);
+      return resource.title.toLowerCase().includes(search.toLowerCase());
     });
     setFilteredResources(tmpResources);
   };
