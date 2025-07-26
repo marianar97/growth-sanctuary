@@ -72,7 +72,7 @@ const defaultResources = [
     id: "8",
     title: "The Art of War",
     description: "The Art of War",
-    image: "thepm.jpg",
+    image: "/thepm.png",
     url: "https://www.youtube.com/watch?v=bdNJgUYeYPk&list=LL&index=3",
     tags: ["Personal Growth", "Programming"],
     type: "video",
