@@ -51,9 +51,9 @@ export default function ResourceCard({
       </Card>
 
       {/* Bottom Info Bar */}
-      <div className="bg-gray-900 rounded-b-xl px-4 py-3 flex flex-col">
+      <div className="bg-gray-900 rounded-b-xl px-4 py-3 flex flex-col h-[80px]">
         <div className="flex flex-col space-y-2">
-          <h3 className="text-white font-semibold text-base whitespace-normal overflow-visible">{title}</h3>
+          <h3 className="text-white font-semibold text-base line-clamp-3 overflow-hidden">{title}</h3>
         </div>
       </div>
     </button>

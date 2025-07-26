@@ -68,7 +68,15 @@ const defaultResources = [
     tags: ["Startup", "Personal Growth"],
     type: "book",
   },
-
+  {
+    id: "8",
+    title: "The Art of War",
+    description: "The Art of War",
+    image: "thepm.jpg",
+    url: "https://www.youtube.com/watch?v=bdNJgUYeYPk&list=LL&index=3",
+    tags: ["Personal Growth", "Programming"],
+    type: "video",
+  },
 ];
 
 export default function Resources({
