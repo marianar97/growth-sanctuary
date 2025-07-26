@@ -14,7 +14,7 @@ export default function SearchBar({ value, handleSearch }) {
       <input
         type="text"
         value={value}
-        onChange={handleSearch}
+        onChange={(e) => handleSearch(e.target.value)}
         placeholder="Search Something..."
         className="w-full outline-none bg-transparent text-gray-600 text-sm"
       />

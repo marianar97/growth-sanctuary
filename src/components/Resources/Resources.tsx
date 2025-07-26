@@ -38,22 +38,30 @@ export default function Resources({
 }: {
   SampleResources?: any[];
 }) {
-  const [selectedType, setSelectedType] = useState<string | null>(null);
   const [filteredResources, setFilteredResources] = useState(SampleResources);
 
   // Handle resource type change
   const handleTypeChange = (type: string) => {
-    setSelectedType(type);
-    const filteredResources2 = SampleResources.filter((resource: any) => {
+    const tmpResources = SampleResources.filter((resource: any) => {
       if (!type) return true;
       return resource.type === type;
     });
-    setFilteredResources(filteredResources2);
+    setFilteredResources(tmpResources);
+  };
+  const handleSearch = (search: string) => {
+    const tmpResources = SampleResources.filter((resource: any) => {
+      if (!search || search === "") return true;
+      return resource.title.includes(search);
+    });
+    setFilteredResources(tmpResources);
   };
 
   return (
     <div className="flex flex-col w-full md:w-[90%] border-gray-200 rounded-lg items-center ">
-      <ResourceSelector onTypeChange={handleTypeChange} />
+      <ResourceSelector
+        onTypeChange={handleTypeChange}
+        onSearch={handleSearch}
+      />
       <ResourceGrid resources={filteredResources} />
     </div>
   );
