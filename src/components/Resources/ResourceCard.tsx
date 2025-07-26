@@ -20,7 +20,7 @@ export default function GenericResourceCard({
   return (
     <div className="min-w-[280px] w-[280px] flex-shrink-0">
       {/* Main Card */}
-      <Card className="bg-white border-gray-200 shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer overflow-hidden">
+      <Card className="bg-white border-gray-200 hover:shadow-lg transition-all duration-300 cursor-pointer overflow-hidden">
         <div className="p-5 text-center space-y-4">
           {/* Header Image */}
           <img
