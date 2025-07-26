@@ -37,7 +37,7 @@ export default function ResourceCard({
           />
 
           {/* Badges - Positioned on top of the image */}
-          <div className="absolute bottom-2 left-0 right-0 flex justify-center space-x-2 px-2">
+          <div className="absolute bottom-2 left-0 right-0 flex justify-end space-x-2 px-2">
             {tags.map((tag) => (
               <Badge
                 key={tag}
