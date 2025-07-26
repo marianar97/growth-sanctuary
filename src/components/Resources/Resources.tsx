@@ -32,6 +32,43 @@ const defaultResources = [
     tags: ["Productivity", "Habits"],
     type: "book",
   },
+  {
+    id: "4",
+    title: "Think Fast, Talk Smart: Communication Techniques",
+    description: "Stanford Communication technique conference from the book Think Fast, Talk Smart",
+    image: "https://i.ytimg.com/vi/HAnw168huqA/maxresdefault.jpg",
+    url: "https://www.youtube.com/watch?v=HAnw168huqA&t=94s",
+    tags: ["Personal Growth", "Communication"],
+    type: "video",
+  },
+  {
+    id: "5",
+    title: "Speechify: Listen to any website",
+    description: "Speechify reads website",
+    image: "https://www.vidnoz.com/bimg/speechify-text-to-speech.jpg",
+    url: "https://speechify.com/",
+    tags: ["Productivity", "Neurodiversity"],
+    type: "tool",
+  },
+  {
+    id: "6",
+    title: "Flow: types whatever you say",
+    description: "Description 2",
+    image: "https://store-images.s-microsoft.com/image/apps.40749.13908841991970612.40536875-f2f0-4bda-90ba-7f257692767b.e2e21593-028d-4a03-9030-a6a5cd48c229?h=307",
+    url: "https://wisprflow.ai/",
+    tags: ["Productivity", "Neurodiversity"],
+    type: "tool",
+  },
+  {
+    id: "7",
+    title: "Burn Rate: Launching a Startup and Losing My Mind",
+    description: "Andy Dunn - Burn Rate: Launching a Startup and Losing My Mind",
+    image: "https://m.media-amazon.com/images/I/31-DRNx+rvL._SY445_SX342_ControlCacheEqualizer_.jpg",
+    url: "https://nextbigideaclub.com/magazine/burn-rate-launching-startup-losing-mind-bookbite/34643/",
+    tags: ["Startup", "Personal Growth"],
+    type: "book",
+  },
+
 ];
 
 export default function Resources({
