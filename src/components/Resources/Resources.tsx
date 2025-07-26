@@ -9,7 +9,8 @@ const defaultResources = [
     title: "Churchill's Speech: We shall fight on the beaches",
     description:
       "Churchill's Speech: We shall fight on the beaches, we shall never surrender",
-    image: "https://www.hollywoodreporter.com/wp-content/uploads/2018/01/4106_d049_00189_r_crop_-_h_2017.jpg",
+    image:
+      "https://www.hollywoodreporter.com/wp-content/uploads/2018/01/4106_d049_00189_r_crop_-_h_2017.jpg",
     url: "https://www.youtube.com/watch?v=CXIrnU7Y_RU",
     tags: ["History", "Growth", "Determination"],
     type: "video",
@@ -35,7 +36,8 @@ const defaultResources = [
   {
     id: "4",
     title: "Think Fast, Talk Smart: Communication Techniques",
-    description: "Stanford Communication technique conference from the book Think Fast, Talk Smart",
+    description:
+      "Stanford Communication technique conference from the book Think Fast, Talk Smart",
     image: "https://i.ytimg.com/vi/HAnw168huqA/maxresdefault.jpg",
     url: "https://www.youtube.com/watch?v=HAnw168huqA&t=94s",
     tags: ["Personal Growth", "Communication"],
@@ -54,7 +56,8 @@ const defaultResources = [
     id: "6",
     title: "Flow: types whatever you say",
     description: "Description 2",
-    image: "https://store-images.s-microsoft.com/image/apps.40749.13908841991970612.40536875-f2f0-4bda-90ba-7f257692767b.e2e21593-028d-4a03-9030-a6a5cd48c229?h=307",
+    image:
+      "https://store-images.s-microsoft.com/image/apps.40749.13908841991970612.40536875-f2f0-4bda-90ba-7f257692767b.e2e21593-028d-4a03-9030-a6a5cd48c229?h=307",
     url: "https://wisprflow.ai/",
     tags: ["Productivity", "Neurodiversity"],
     type: "tool",
@@ -62,16 +65,18 @@ const defaultResources = [
   {
     id: "7",
     title: "Burn Rate: Launching a Startup and Losing My Mind",
-    description: "Andy Dunn - Burn Rate: Launching a Startup and Losing My Mind",
-    image: "https://m.media-amazon.com/images/I/31-DRNx+rvL._SY445_SX342_ControlCacheEqualizer_.jpg",
+    description:
+      "Andy Dunn - Burn Rate: Launching a Startup and Losing My Mind",
+    image:
+      "https://m.media-amazon.com/images/I/31-DRNx+rvL._SY445_SX342_ControlCacheEqualizer_.jpg",
     url: "https://nextbigideaclub.com/magazine/burn-rate-launching-startup-losing-mind-bookbite/34643/",
     tags: ["Startup", "Personal Growth"],
     type: "book",
   },
   {
     id: "8",
-    title: "The Art of War",
-    description: "The Art of War",
+    title: "Is ADHD Bad For Programming?",
+    description: "ThePrimeagen: Is ADHD Bad For Programming?",
     image: "/thepm.png",
     url: "https://www.youtube.com/watch?v=bdNJgUYeYPk&list=LL&index=3",
     tags: ["Personal Growth", "Programming"],
