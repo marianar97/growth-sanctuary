@@ -17,8 +17,15 @@ export default function ResourceCard({
   url: string;
   tags: string[];
 }) {
+  const handleClick = () => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+  
   return (
-    <div className="min-w-[280px] w-[280px] flex-shrink-0 ">
+    <button 
+      onClick={handleClick}
+      className="min-w-[280px] w-[280px] flex-shrink-0 text-left p-0 border-0 bg-transparent"
+    >
       {/* Main Card */}
       <Card className="bg-white border-none hover:shadow-lg transition-all duration-300 cursor-pointer overflow-hidden rounded-b-none">
         <div className="relative">
@@ -30,7 +37,7 @@ export default function ResourceCard({
           />
 
           {/* Badges - Positioned on top of the image */}
-          <div className="absolute top-2 left-0 right-0 flex justify-center space-x-2 px-2">
+          <div className="absolute bottom-2 left-0 right-0 flex justify-center space-x-2 px-2">
             {tags.map((tag) => (
               <Badge
                 key={tag}
@@ -46,21 +53,9 @@ export default function ResourceCard({
       {/* Bottom Info Bar */}
       <div className="bg-gray-900 rounded-b-xl px-4 py-3 flex flex-col">
         <div className="flex flex-col space-y-2">
-          <span className="text-gray-400 text-xs truncate">{url}</span>
           <h3 className="text-white font-semibold text-base whitespace-normal overflow-visible">{title}</h3>
-          <p className="text-gray-400 text-sm">{description}</p>
-          <div className="flex items-center space-x-4 text-gray-400 mt-1">
-            <div className="flex items-center space-x-1">
-              <Eye size={16} />
-              <span className="text-sm">155</span>
-            </div>
-            <div className="flex items-center space-x-1">
-              <Star size={16} />
-              <span className="text-sm">1</span>
-            </div>
-          </div>
         </div>
       </div>
-    </div>
+    </button>
   );
 }
