@@ -1,4 +1,4 @@
-import ResourceSelector from "./ResourceSelector";
+import ResourceSelector from "../Search/ResourceSelector";
 import ResourceGrid from "./ResourceGrid";
 import { useState } from "react";
 
@@ -181,11 +181,21 @@ export default function Resources({
     setFilteredResources(tmpResources);
   };
 
+  const handleTagChange = (tag: TagType) => {
+    const tmpResources = SampleResources.filter((resource: any) => {
+      if (!tag ) return true;
+      return resource.tags.includes(tag);
+    });
+    setFilteredResources(tmpResources);
+  };
+
   return (
-    <div className="flex flex-col w-full md:w-[90%] border-gray-200 rounded-lg items-center ">
+    <div className="flex flex-col w-full md:w-[90%] border-none rounded-lg items-start ">
       <ResourceSelector
         onTypeChange={handleTypeChange}
         onSearch={handleSearch}
+        onTagChange={handleTagChange}
+        tags={Object.values(TagType)}
       />
       <ResourceGrid resources={filteredResources} />
     </div>
