@@ -18,6 +18,7 @@ enum TagType {
   NEURODIVERSITY = "Neurodiversity",
   STARTUP = "Startup",
   PROGRAMMING = "Programming",
+  CURIOSITY = "Curiosity",
 }
 
 interface Resource {
@@ -140,6 +141,18 @@ const defaultResources: Resource[] = [
     tags: [
       TagType.STARTUP,
       TagType.NEURODIVERSITY,
+    ],
+    type: ResourceType.VIDEO,
+  },
+  {
+    id: "10",
+    title: "Be Curious",
+    description: "Be Curious",
+    image: "/curious-gene.png",
+    url: "https://www.youtube.com/watch?v=HhPZ7yx8ttg",
+    tags: [
+      TagType.GROWTH,
+      TagType.CURIOSITY,
     ],
     type: ResourceType.VIDEO,
   },
