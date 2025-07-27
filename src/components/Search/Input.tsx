@@ -1,6 +1,11 @@
-import React from "react";
+import { ChangeEvent } from "react";
 
-export default function Input({ value, handleSearch }) {
+interface InputProps {
+  value: string;
+  handleSearch: (e: ChangeEvent<HTMLInputElement>) => void;
+}
+
+export default function Input({ value, handleSearch }: InputProps) {
   return (
     <div>
       <input

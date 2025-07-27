@@ -1,12 +1,24 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 
-export default function Dropdown({ onTypeChange, initialSelected = null }) {
+interface MenuItem {
+  id: string;
+  text: string;
+  type: string;
+  href?: string;
+}
+
+interface DropdownProps {
+  onTypeChange: (type: string) => void;
+  initialSelected: string | null;
+}
+
+export default function Dropdown({ onTypeChange, initialSelected = null }: DropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState(initialSelected);
-  const dropdownRef = useRef(null);
+  const [selected, setSelected] = useState<string | null>(initialSelected);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   // Define menu items array
-  const menuItems = [
+  const menuItems: MenuItem[] = [
     { id: "video", text: "Video", type: "video" },
     { id: "article", text: "Article", type: "article" },
     { id: "book", text: "Book", type: "book" },
@@ -17,7 +29,7 @@ export default function Dropdown({ onTypeChange, initialSelected = null }) {
     setIsOpen(!isOpen);
   };
 
-  const handleItemClick = (id) => {
+  const handleItemClick = (id: string) => {
     setSelected(id);
     if (onTypeChange) {
       onTypeChange(id);
@@ -30,8 +42,8 @@ export default function Dropdown({ onTypeChange, initialSelected = null }) {
     menuItems.find((item) => item.id === selected)?.text || "Type";
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+    const handleClickOutside = (event: Event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsOpen(false);
       }
     };
@@ -69,7 +81,7 @@ export default function Dropdown({ onTypeChange, initialSelected = null }) {
       </button>
       <div
         role="menu"
-        tabIndex="-1"
+        tabIndex={-1}
         aria-labelledby="menu-button"
         aria-orientation="vertical"
         className={`absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-hidden transition-all duration-200 ease-in-out transform ${
@@ -87,7 +99,7 @@ export default function Dropdown({ onTypeChange, initialSelected = null }) {
                 id={item.id}
                 role="menuitem"
                 href={item.href}
-                tabIndex="-1"
+                tabIndex={-1}
                 onClick={(e) => {
                   e.preventDefault();
                   handleItemClick(item.id);
@@ -115,7 +127,7 @@ export default function Dropdown({ onTypeChange, initialSelected = null }) {
                   id={item.id}
                   type="submit"
                   role="menuitem"
-                  tabIndex="-1"
+                  tabIndex={-1}
                   className={`block w-full px-4 py-2 text-left text-sm ${
                     item.id === selected
                       ? "bg-gray-100 text-gray-900"

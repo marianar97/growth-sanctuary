@@ -1,6 +1,10 @@
-import React from "react";
+// No imports needed
 
-export default function SearchBar({ onSearch }) {
+interface SearchBarProps {
+  onSearch: (query: string) => void;
+}
+
+export default function SearchBar({ onSearch }: SearchBarProps) {
   return (
     <div className="flex px-4 py-3 md:my-4 rounded-md border-2 border-gray-100 hover:border-gray-400 overflow-hidden w-full">
       <svg

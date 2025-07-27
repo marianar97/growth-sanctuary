@@ -1,16 +1,13 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Eye, Star } from "lucide-react";
 
 export default function ResourceCard({
-  id,
   title,
   description,
   image,
   url,
   tags,
 }: {
-  id: string;
   title: string;
   description: string;
   image: string;

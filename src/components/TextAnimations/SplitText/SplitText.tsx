@@ -9,6 +9,30 @@ import { SplitText as GSAPSplitText } from "gsap/SplitText";
 
 gsap.registerPlugin(ScrollTrigger, GSAPSplitText);
 
+type SplitTypeOptions = "chars" | "words" | "lines";
+type TextAlignOptions = "left" | "center" | "right" | "justify";
+
+interface AnimationProps {
+  opacity?: number;
+  y?: number;
+  [key: string]: any;
+}
+
+interface SplitTextProps {
+  text: string;
+  className?: string;
+  delay?: number;
+  duration?: number;
+  ease?: string;
+  splitType?: SplitTypeOptions;
+  from?: AnimationProps;
+  to?: AnimationProps;
+  threshold?: number;
+  rootMargin?: string;
+  textAlign?: TextAlignOptions;
+  onLetterAnimationComplete?: () => void;
+}
+
 const SplitText = ({
   text,
   className = "",
@@ -22,10 +46,10 @@ const SplitText = ({
   rootMargin = "-100px",
   textAlign = "center",
   onLetterAnimationComplete,
-}) => {
-  const ref = useRef(null);
-  const animationCompletedRef = useRef(false);
-  const scrollTriggerRef = useRef(null);
+}: SplitTextProps) => {
+  const ref = useRef<HTMLParagraphElement>(null);
+  const animationCompletedRef = useRef<boolean>(false);
+  const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
 
   useEffect(() => {
     if (typeof window === "undefined" || !ref.current || !text) return;
@@ -35,7 +59,7 @@ const SplitText = ({
     animationCompletedRef.current = false;
 
     const absoluteLines = splitType === "lines";
-    if (absoluteLines) el.style.position = "relative";
+    if (absoluteLines && el) el.style.position = "relative";
 
     let splitter;
     try {
@@ -71,7 +95,9 @@ const SplitText = ({
     }
 
     targets.forEach((t) => {
-      t.style.willChange = "transform, opacity";
+      if (t instanceof HTMLElement) {
+        t.style.willChange = "transform, opacity";
+      }
     });
 
     const startPct = (1 - threshold) * 100;
@@ -90,7 +116,7 @@ const SplitText = ({
         start,
         toggleActions: "play none none none",
         once: true,
-        onToggle: (self) => {
+        onToggle: (self: ScrollTrigger) => {
           scrollTriggerRef.current = self;
         },
       },
@@ -118,7 +144,7 @@ const SplitText = ({
     return () => {
       tl.kill();
       if (scrollTriggerRef.current) {
-        scrollTriggerRef.current.kill();
+        scrollTriggerRef.current.kill(false);
         scrollTriggerRef.current = null;
       }
       gsap.killTweensOf(targets);
