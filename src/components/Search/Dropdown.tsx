@@ -43,7 +43,7 @@ export default function Dropdown({ onTypeChange, initialSelected = null }) {
   }, []);
 
   return (
-    <div className="relative inline-block" ref={dropdownRef}>
+    <div className="relative w-full md:w-fit inline-block" ref={dropdownRef}>
       <button
         id="menu-button"
         type="button"
