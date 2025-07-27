@@ -1,16 +1,21 @@
 import { useState } from "react";
 
-export default function TagSelector({ onTagChange, tags }: { onTagChange: (tag: any) => void, tags: any[] }) {
-  const [selectedTag, setSelectedTag] = useState<any>(null);
+export default function TagSelector({ onTagChange, tags }: { onTagChange: (tags: any[]) => void, tags: any[] }) {
+  const [selectedTags, setSelectedTags] = useState<any[]>([]);
 
   const handleTagClick = (tag: any) => {
-    if (selectedTag === tag) {
-      setSelectedTag(null);
-      onTagChange(null);
+    let newSelectedTags: any[];
+    
+    if (selectedTags.includes(tag)) {
+      // Remove tag if already selected
+      newSelectedTags = selectedTags.filter(t => t !== tag);
     } else {
-      setSelectedTag(tag);
-      onTagChange(tag);
+      // Add tag if not selected
+      newSelectedTags = [...selectedTags, tag];
     }
+    
+    setSelectedTags(newSelectedTags);
+    onTagChange(newSelectedTags);
   };
 
   return (
@@ -20,7 +25,7 @@ export default function TagSelector({ onTagChange, tags }: { onTagChange: (tag: 
           key={tag} 
           onClick={() => handleTagClick(tag)} 
           className={`cursor-pointer rounded-full px-2 py-1 border border-gray-200 transition-colors duration-200 ${
-            selectedTag === tag 
+            selectedTags.includes(tag) 
               ? 'bg-purple-600 text-white border-purple-600' 
               : 'hover:bg-gray-100'
           }`}

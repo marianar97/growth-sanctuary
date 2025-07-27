@@ -10,8 +10,8 @@ export default function ResourceSelector({
 }: {
   onTypeChange: (type: string) => void;
   onSearch: (search: string) => void;
-  onTagChange: (tag: string) => void;
-  tags: string[];
+  onTagChange: (tags: any[]) => void;
+  tags: any[];
 }) {
   return (
     <>
