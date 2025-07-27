@@ -20,10 +20,6 @@ enum TagType {
   PROGRAMMING = "Programming",
 }
 
-interface Tag {
-  type: TagType;
-}
-
 interface Resource {
   id: string;
   title: string;
