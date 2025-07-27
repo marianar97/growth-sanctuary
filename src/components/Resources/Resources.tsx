@@ -181,9 +181,9 @@ export default function Resources({
     setFilteredResources(tmpResources);
   };
 
-  const handleTagChange = (tag: TagType) => {
+  const handleTagChange = (tag: TagType | null) => {
     const tmpResources = SampleResources.filter((resource: any) => {
-      if (!tag ) return true;
+      if (!tag) return true;
       return resource.tags.includes(tag);
     });
     setFilteredResources(tmpResources);

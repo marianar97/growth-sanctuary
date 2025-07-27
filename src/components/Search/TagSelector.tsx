@@ -4,8 +4,13 @@ export default function TagSelector({ onTagChange, tags }: { onTagChange: (tag: 
   const [selectedTag, setSelectedTag] = useState<any>(null);
 
   const handleTagClick = (tag: any) => {
-    setSelectedTag(tag);
-    onTagChange(tag);
+    if (selectedTag === tag) {
+      setSelectedTag(null);
+      onTagChange(null);
+    } else {
+      setSelectedTag(tag);
+      onTagChange(tag);
+    }
   };
 
   return (
