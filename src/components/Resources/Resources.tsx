@@ -34,7 +34,7 @@ interface Resource {
 const defaultResources: Resource[] = [
   {
     id: "1",
-    title: "Churchill's Speech: We shall fight on the beaches",
+    title: "Churchill's Speech: You shall never surrender",
     description:
       "Churchill's Speech: We shall fight on the beaches, we shall never surrender",
     image:
@@ -155,7 +155,7 @@ export default function Resources({
   // Handle resource type change
   const handleTypeChange = (type: string) => {
     const tmpResources = SampleResources.filter((resource: any) => {
-      if (!type) return true;
+      if (!type || type === "all") return true;
       return resource.type === type;
     });
     setFilteredResources(tmpResources);

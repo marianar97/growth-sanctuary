@@ -19,6 +19,7 @@ export default function Dropdown({ onTypeChange, initialSelected = null }: Dropd
 
   // Define menu items array
   const menuItems: MenuItem[] = [
+    { id: "all", text: "All", type: "all" },
     { id: "video", text: "Video", type: "video" },
     { id: "article", text: "Article", type: "article" },
     { id: "book", text: "Book", type: "book" },
@@ -39,7 +40,7 @@ export default function Dropdown({ onTypeChange, initialSelected = null }: Dropd
 
   // Find the text of the currently selected item
   const selectedItemText =
-    menuItems.find((item) => item.id === selected)?.text || "Type";
+    menuItems.find((item) => item.id === selected)?.text || "All";
 
   useEffect(() => {
     const handleClickOutside = (event: Event) => {
